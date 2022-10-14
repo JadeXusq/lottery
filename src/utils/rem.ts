@@ -7,7 +7,7 @@
  * @FilePath: /vue-vant-h5-template/src/plugins/rem.js
  */
 
-(function(doc, win) {
+const remUtils = (function(doc, win) {
   const resizeEvt =
       'orientationchange' in window ? 'orientationchange' : 'resize',
     setRem = function() {
@@ -24,3 +24,5 @@
   win.addEventListener(resizeEvt, setRem, false)
   doc.addEventListener('DOMContentLoaded', setRem, false)
 })(document, window)
+
+export default remUtils

@@ -2,6 +2,7 @@
   // import { getCurrentInstance } from 'vue'
   // const { proxy } = getCurrentInstance()
   // proxy.$toast('123')
+  console.log(123)
 </script>
 
 <template>

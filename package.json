@@ -15,6 +15,7 @@
     "postcss-px2rem": "^0.3.0",
     "postcss-pxtorem": "5.1.1",
     "ts-node": "^10.9.1",
+    "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
     "vant": "^3.6.4",
     "vue": "^3.2.38",
@@ -37,9 +38,13 @@
     "npm-run-all": "^4.1.5",
     "postcss-plugin-px2rem": "^0.8.1",
     "prettier": "^2.7.1",
+    "rollup-plugin-visualizer": "^5.8.2",
     "typescript": "~4.7.4",
     "vite": "^3.0.9",
-    "vite-plugin-style-import": "2.0.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-progress": "^0.0.5",
+    "vite-plugin-style-import": "^2.0.0",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-tsc": "^0.40.7"
   }

@@ -1,0 +1,282 @@
+@charset "utf-8";
+body {
+  display: block;
+  position: relative;
+  font-size: 0.16rem;
+  font-family: "Microsoft Yahei", "Arial", sans-serif;
+  background-color:#ff735a;
+}
+#wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 17.4rem;
+  background-image: url("../image/bg.jpg");
+  background-size:100% 100%;
+  -webkit-background-size:100% 100%;
+}
+.time {
+  position: absolute;
+  left: 0.66666667rem;
+  top: 1rem;
+  width: 1.73333333rem;
+  line-height: 0.37333333rem;
+  font-size: 0.29333333rem;
+  color: #fff;
+  -o-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+
+@keyframes twinkle {
+  100% {
+    opacity: 0;
+  }
+}
+.stars:nth-child(even) {
+  -o-animation: bigSmall 1s 1s linear infinite alternate;
+  -ms-animation: bigSmall 1s 1s linear infinite alternate;
+  -moz-animation: bigSmall 1s 1s linear infinite alternate;
+  -webkit-animation: bigSmall 1s 1s linear infinite alternate;
+  animation: bigSmall 1s 1s linear infinite alternate;
+}
+@keyframes bigSmall {
+  100% {
+    -o-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+/*主体*/
+.main {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 12rem;
+}
+.rule,
+.my {
+  position: absolute;
+  top: 0.4rem;
+  width: 1.6rem;
+  height: 0.6rem;
+  background: no-repeat center / contain;
+}
+.rule {
+  left: 2.26666667rem;
+  background-image: url("../image/rule.png");
+}
+.my {
+  right: 2.26666667rem;
+  background-image: url("../image/my.png");
+}
+/*游戏盒子*/
+.box {
+  position: absolute;
+  left: 0.4rem;
+  top: 1.5rem;
+  width: 9.2rem;
+  height: 8.02666667rem;
+  background-image: url("../image/choujiang.png");
+  background-size:100% 100%;
+  -webkit-background-size:100% 100%;  
+}
+
+@keyframes jump {
+  100% {
+    top: -0.66666667rem;
+  }
+}
+.main-h2{
+  background:url(../image/bg2.png) no-repeat;
+  width:9rem;
+  height:1rem;
+  line-height:1rem;
+  margin:0px auto;
+  text-align: center;
+  font-size: 0.4rem;
+  color: #fff;
+  background-size:100% 100%;
+  -webkit-background-size:100% 100%;
+}
+#change {
+  color: #fde817;
+}
+/*小彩灯*/
+.light {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+/*  height: 6.93333333rem;*/
+ height: 100%;
+}
+.light li {
+  position: relative;
+  width: 0.52rem;
+  height: 100%;
+}
+.light li p {
+  margin-top: 0.7rem;
+  width: 0.52rem;
+  height: 0.52rem;
+  background-image: url("../image/dark.png");
+}
+.light li p.blin {
+  background-image: url("../image/light.png");
+}
+
+
+/*小彩灯*/
+.light2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.light2 li{
+  position:absolute;
+  width:100%;
+
+  left:0rem;
+}
+.light2 li.ft{ top:0rem;}
+.light2 li.fb{ bottom:0rem;}
+.light2 li p {
+  width:0.52rem;
+  height:0.52rem;
+  float:left;
+  margin-left:0.88rem;
+  background-image: url("../image/dark.png");
+}
+.light2 li p.blin {
+  background-image: url("../image/light.png");
+}
+
+
+
+/*游戏区域*/
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -3.4rem 0 0 -4rem;
+  width: 8rem;
+  height: 5.86666667rem;
+}
+.play li {
+  position: relative;
+  float: left;
+  margin: 0.3rem 0 0 0.09333333rem;
+  width:2.54666667rem;
+  height:1.86666667rem;
+  background-image: url("../image/normal.png");
+}
+.play li:nth-child(4) {
+  left: 5.28rem;
+}
+.play li:nth-child(6) {
+  top: 2.2rem;
+}
+.play li:nth-child(7) {
+  left: 2.64rem;
+}
+.play li:nth-child(8) {
+  left: -2.64rem;
+}
+.play li:nth-child(9) {
+  left: -5.28rem;
+  top: -2.2rem;
+}
+.play li div {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/*奖品图片大小*/
+.play li div img {
+  width: 2.54666667rem;
+  height: 1.86666667rem;
+}
+.play li div p {
+  position: absolute;
+  left: 50%;
+  bottom: 0.13333333rem;
+  margin-left: -1.28rem;
+  width: 100%;
+  font-size: 0.29333333rem;
+  color: #c14600;
+}
+.play li.select {
+  background-image: url("../image/select.png");
+}
+/*开始按钮*/
+#btn {
+  background-image: url("../image/start.png");
+}
+/*奖品展示*/
+.awards {
+  bottom: 0.37333333rem;
+  margin-left: -4.6rem;
+  width: 9.2rem;
+  height: 1.86666667rem;
+  background-color: #fd851f;
+  box-shadow: 0 0.26666667rem 0.26666667rem rgba(248, 85, 40, 0.5) inset;
+  border-radius: 0.13333333rem;
+}
+
+
+.banner{ width:100%;}
+.banner img{ display:block;width:100%;}
+.activity,.activity2{padding:0rem 0rem 0.3rem 0rem; }
+.activity2{  padding:0rem 0rem 0.6rem 0rem; }
+.activity-amin{width:85%; margin:0rem auto;}
+.activity-amin h2{ margin: 0rem auto 0.4rem auto;
+  width: 4.4rem;
+  height: 0.8rem;
+  background-color: #ffe771;
+  text-align: center;
+  line-height: 0.8rem;
+  font-size: 0.4rem;
+  color: #bc5700;
+  border-radius: 0.34666667rem;
+  letter-spacing:0.2rem
+  }
+ .activity-amin p{ 
+  width: 100%;
+  line-height: 0.6rem;
+  font-size: 0.2rem;
+  color: #fff;
+  letter-spacing:0.1rem;
+  margin-bottom:0.6rem;
+  }
+ 
+ .wt1{ width:94%;  display:block; border:none; background-color:#FFF; padding:5% 3%; border-radius:0.34666667rem; font-size: 0.4rem; margin-bottom:6%} 
+ .wt2{width:50%; float:left}
+ .wt3{ width:40%; float:right; background-color:#efc84d; color:#FFF}
+ .wt4{width:100%;background-color:#efc84d; color:#FFF; font-size:0.6rem;}
+ .prompt1{clear:both; width:100%; text-align:center; font-size: 0.4rem; margin-bottom:6%; color:#ffe66f; display:none}
+ .tb0{ width:100%; margin-bottom:6%; }
+ .tb0 tr th{ width:20%; line-height:0.9rem; text-align:center; color:#fff886; border-bottom:1px solid #ffffff;}
+ .tb0 tr th:nth-child(1){width:42%; }
+ .tb0 tr th:nth-child(2){width:38%; }
+ .tb0 tr td{ width:20%; line-height:0.9rem; text-align:center; color:#FFF;border-bottom:1px solid #ffffff;}
+ 
+
+
+.main2{ width:90%; position:absolute; bottom:0.7rem; left:50%; margin-left:-45%;  }
+a.a-main{ display:inline-block; color:#FFF;width:47%; padding:0.3rem 0rem; text-align:center; font-size: 0.5rem; border-radius:0.2rem; letter-spacing:0.1rem;background-color:#d03434; }
+a.a1{ margin-right:4%}
+.img1{ display:block; width:100%; margin:0.2rem auto 0.2rem auto;}
+
+a.a-main2{ display:block; color:#FFF; margin:0px auto; width:8.7rem; padding:0.3rem 0rem; text-align:center; font-size: 0.5rem; border-radius:0.2rem; letter-spacing:0.1rem}
+a.a3{ background-color:#efc84d; margin:0.2rem auto 0.4rem auto;}

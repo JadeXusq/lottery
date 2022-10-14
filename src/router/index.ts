@@ -1,17 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../views/home/index.vue')
+      name: 'lottery',
+      component: () => import('../views/lottery/index.vue')
     },
     {
-      path: '/demo',
-      name: 'demo',
-      component: () => import('../views/demo/index.vue')
+      path: '/simple',
+      name: 'simple',
+      component: () => import('../views/simple/index.vue')
     }
   ]
 })

@@ -7,6 +7,7 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript",
+    "./.eslintrc-auto-import"
   ],
   parserOptions: {
     ecmaVersion: "latest",
@@ -14,5 +15,5 @@ module.exports = {
   rules: {
     // 关闭驼峰命名规则
     "vue/multi-word-component-names": 0,
-  }
+  },
 };
