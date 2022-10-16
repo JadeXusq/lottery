@@ -1,10 +1,10 @@
-export default function useLottery() {
+export default function useSimpleLottery() {
   const angle = ref<number>(0)
 
   // 抽奖
   const lotteryHandler = () => {
     const originNum = (angle.value % 360) / 60 // 记录是第几个
-    const randomNum = parseInt((Math.random() * 5) as unknown as string) // 生成随机数（从0开始，生成判断奖品）
+    const randomNum = Math.floor(Math.random() * 5) // 生成随机数（从0开始，生成判断奖品）
     console.log(`转到第${randomNum + 1}个`)
     const isGift = !(randomNum % 2)
     const needAngle = (randomNum - originNum) * 60

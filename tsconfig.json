@@ -18,6 +18,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noImplicitThis": true, // js/ts 混用时设为false
+    "isolatedModules": false,
     "baseUrl": ".",
     "paths": {
       "@/*": [

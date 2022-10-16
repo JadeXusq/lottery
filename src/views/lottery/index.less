@@ -1,0 +1,100 @@
+main {
+  color: #666;
+  min-height: 100vh;
+  background-color: #e72427;
+}
+.myprize {
+  text-align: center;
+  padding-top: @margin-2;
+  z-index: 1;
+  &-inner {
+    background: #ffe68c;
+    border-radius: 5vw;
+    padding: 2vw 17vw;
+    color: #e72427;
+    font-size: 5vw;
+  }
+}
+
+.gomyimg {
+  position: relative;
+  top: 1vw;
+  width: 3vw;
+  height: 5vw;
+}
+
+
+.lottery-box {
+  overflow: hidden;
+}
+
+.lottery-box .title {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.lottery {
+  background: url("../../assets/images/lottery/boxbg.png");
+  overflow: hidden;
+  padding: 95px @margin-2 65px;
+  margin: 0 auto;
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  &-item {
+    position: relative;
+    height: 667px;
+    ul {
+      li {
+        position: absolute;
+        width: 33.33333333%;
+        padding-right: 1vw;
+        left: 0;
+        top: 0;
+        .box {
+          margin-top: @margin;
+          height: 188px;
+          img {
+            display: block;
+            margin: 0 auto;
+            height: 188px;
+          }
+        }
+        &:nth-child(2), &:nth-child(6) {
+          left: 33.33333333%;
+        }
+        &:nth-child(3), &:nth-child(4), &:nth-child(5){
+          left: 66.66666666%;
+        }
+        &:nth-child(4), &:nth-child(8){
+          top: 29vw;
+        }
+        &:nth-child(5), &:nth-child(6), &:nth-child(7){
+          top: 58vw;
+        }
+      }
+    }
+  }
+}
+
+.lottery .lottery-item .lottery-start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  .box {
+    height: 185px;
+    width: 185px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    background: url("../../assets/images/lottery/draw.png") no-repeat center;
+    background-size: 100% 100%;
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}

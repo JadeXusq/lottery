@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@rushstack/eslint-patch': ^1.1.4
-  '@types/node': ^16.11.56
   '@vitejs/plugin-vue': ^3.0.3
   '@vitejs/plugin-vue-jsx': ^2.0.1
   '@vue/eslint-config-prettier': ^7.0.0
@@ -16,6 +15,7 @@ specifiers:
   less-loader: ^11.1.0
   npm-run-all: ^4.1.5
   pinia: ^2.0.21
+  pinia-plugin-persistedstate: ^2.3.0
   postcss: 8.1.0
   postcss-plugin-px2rem: ^0.8.1
   postcss-px2rem: ^0.3.0
@@ -39,10 +39,11 @@ specifiers:
 
 dependencies:
   pinia: 2.0.23_rg374xhldfcyvjtaj3qktyfz5y
+  pinia-plugin-persistedstate: 2.3.0_pinia@2.0.23
   postcss: 8.1.0
   postcss-px2rem: 0.3.0
   postcss-pxtorem: 5.1.1
-  ts-node: 10.9.1_dnkbojrv3xc7inw77nh6foefi4
+  ts-node: 10.9.1_typescript@4.7.4
   unplugin-auto-import: 0.11.2
   unplugin-vue-components: 0.22.8_vue@3.2.40
   vant: 3.6.4_vue@3.2.40
@@ -51,12 +52,11 @@ dependencies:
 
 devDependencies:
   '@rushstack/eslint-patch': 1.2.0
-  '@types/node': 16.11.65
   '@vitejs/plugin-vue': 3.1.2_vite@3.1.8+vue@3.2.40
   '@vitejs/plugin-vue-jsx': 2.0.1_vite@3.1.8+vue@3.2.40
   '@vue/eslint-config-prettier': 7.0.0_znq2sm4m5bonjw4qqm6mwhbe2q
   '@vue/eslint-config-typescript': 11.0.2_bdxbbxtuayd4lgflbnh77t3rcm
-  '@vue/tsconfig': 0.1.3_@types+node@16.11.65
+  '@vue/tsconfig': 0.1.3
   autoprefixer: 10.4.12_postcss@8.1.0
   consola: 2.15.3
   eslint: 8.25.0
@@ -618,6 +618,7 @@ packages:
 
   /@types/node/16.11.65:
     resolution: {integrity: sha512-Vfz7wGMOr4jbQGiQHVJm8VjeQwM9Ya7mHe9LtQ264/Epf5n1KiZShOFqk++nBzw6a/ubgYdB9Od7P+MH/LjoWw==}
+    dev: true
 
   /@types/responselike/1.0.0:
     resolution: {integrity: sha1-JR9P59FU0rrRJavhtCmyOv0mLik=}
@@ -977,15 +978,13 @@ packages:
   /@vue/shared/3.2.40:
     resolution: {integrity: sha512-0PLQ6RUtZM0vO3teRfzGi4ltLUO5aO+kLgwh4Um3THSR03rpQWLTuRCkuO5A41ITzwdWeKdPHtSARuPkoo5pCQ==}
 
-  /@vue/tsconfig/0.1.3_@types+node@16.11.65:
+  /@vue/tsconfig/0.1.3:
     resolution: {integrity: sha512-kQVsh8yyWPvHpb8gIc9l/HIDiiVUy1amynLNpCy8p+FoCiZXCo6fQos5/097MmnNZc9AtseDsCrfkhqCrJ8Olg==}
     peerDependencies:
       '@types/node': '*'
     peerDependenciesMeta:
       '@types/node':
         optional: true
-    dependencies:
-      '@types/node': 16.11.65
     dev: true
 
   /acorn-jsx/5.3.2_acorn@8.8.0:
@@ -4250,6 +4249,17 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /pinia-plugin-persistedstate/2.3.0_pinia@2.0.23:
+    resolution: {integrity: sha512-K7vzt68Z3lbMDjb23Ki2vgHVBP2QFvjl7WNwzIwqY/DAkhSt8mi/z6bN/cXTst7fJjXWF0lC9NyxFKHfxWehuw==}
+    peerDependencies:
+      pinia: ^2.0.0
+    peerDependenciesMeta:
+      pinia:
+        optional: true
+    dependencies:
+      pinia: 2.0.23_rg374xhldfcyvjtaj3qktyfz5y
+    dev: false
+
   /pinia/2.0.23_rg374xhldfcyvjtaj3qktyfz5y:
     resolution: {integrity: sha512-N15hFf4o5STrxpNrib1IEb1GOArvPYf1zPvQVRGOO1G1d74Ak0J0lVyalX/SmrzdT4Q0nlEFjbURsmBmIGUR5Q==}
     peerDependencies:
@@ -5066,7 +5076,7 @@ packages:
       escape-string-regexp: 1.0.5
     dev: true
 
-  /ts-node/10.9.1_dnkbojrv3xc7inw77nh6foefi4:
+  /ts-node/10.9.1_typescript@4.7.4:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -5085,7 +5095,6 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 16.11.65
       acorn: 8.8.0
       acorn-walk: 8.2.0
       arg: 4.1.3

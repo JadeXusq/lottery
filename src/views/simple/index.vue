@@ -1,15 +1,17 @@
-<script setup lang="ts" name="demo">
-  import useLottery from './hooks/lottery'
-  const { angle, lotteryHandler } = useLottery()
+<script setup lang="ts" name="Simple">
+  import useSimpleLottery from './hooks/lottery'
+  const { angle, lotteryHandler } = useSimpleLottery()
 </script>
 
 <template>
-  <div class="turntable">
-    <div class="bg">
-      <img class="draw-bg" :style="{transform: `rotate(${angle}deg)`}" src="@/assets/images/demo/draw-bg.png">
-      <img class="start-btn" src="@/assets/images/demo/start.png" @click="lotteryHandler">
+  <main>
+    <div class="turntable">
+      <div class="bg">
+        <img class="draw-bg" :style="{transform: `rotate(${angle}deg)`}" src="@/assets/images/simple/draw-bg.png">
+        <img class="start-btn" src="@/assets/images/simple/start.png" @click="lotteryHandler">
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="less">

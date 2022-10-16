@@ -3,6 +3,7 @@ import path from 'path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJSX from '@vitejs/plugin-vue-jsx'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 import AutoImport from 'unplugin-auto-import/vite';
@@ -13,13 +14,14 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import';
 import viteImagemin from 'vite-plugin-imagemin';
 import viteCompression from 'vite-plugin-compression';
 import { visualizer } from 'rollup-plugin-visualizer'
-// import progress from 'vite-plugin-progress';
+import progress from 'vite-plugin-progress';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
   plugins: [
     vue(),
+    vueJSX(),
     VueSetupExtend(),
     AutoImport({
       dts: 'src/types/auto-imports.d.ts',
@@ -50,6 +52,7 @@ export default defineConfig({
     }),
     viteImagemin({
       verbose: false,
+      disable: true,
       gifsicle: {
         optimizationLevel: 7,
         interlaced: false
@@ -90,7 +93,7 @@ export default defineConfig({
       open: false,
       gzipSize: true
     }),
-    // progress(),
+    progress(),
   ],
 
   css: {
@@ -113,17 +116,17 @@ export default defineConfig({
     }
   },
 
-  esbuild: {
-    pure: ['console.log', 'debugger']
-  },
+  // esbuild: {
+  //   pure: ['console.log', 'debugger']
+  // },
 
   build: {
     rollupOptions: {
       output: {
         assetFileNames: assetInfo => {
           if(assetInfo.name) {
-            var info = assetInfo.name.split('.')
-            var extType = info[info.length - 1]
+            let info = assetInfo.name.split('.')
+            let extType = info[info.length - 1]
             if (
               /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i.test(assetInfo.name)
             ) {
@@ -138,7 +141,7 @@ export default defineConfig({
           return `static/[name]-[hash][extname]`
         },
         chunkFileNames: 'static/js/[name]-[hash].js',
-        entryFileNames: 'static/js/[name]-[hash].js'
+        entryFileNames: 'static/js/entry-[hash].js',
       }
     }
   },
