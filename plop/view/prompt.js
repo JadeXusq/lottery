@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   description: "创建页面",
   prompts: [
