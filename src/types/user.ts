@@ -1,15 +1,15 @@
 /**
  * 用户信息
  */
- export interface IUserInfo {
+export interface IUserInfo {
   /**
    * 用户名
    */
-   userName?: string;
-   /**
-    * 用户电话
-    */
-   phone?: string;
+  userName?: string;
+  /**
+   * 用户电话
+   */
+  phone?: string;
 }
 
 export interface IUserState {
@@ -20,7 +20,7 @@ export interface IUserState {
   /**
    * 用户信息
    */
-  userInfo: IUserInfo
+  userInfo: IUserInfo;
 }
 
 /**

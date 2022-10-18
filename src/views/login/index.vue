@@ -1,33 +1,36 @@
 <script setup lang="ts">
-  import { useUserStore } from '@/store'
-  import useForm from '@/hooks/useForm'
-  import type { ILoginRequest } from '@/types/user'
-  
-  const router = useRouter();
-  const userStore = useUserStore()
+import { useUserStore } from "@/store";
+import useForm from "@/hooks/useForm";
+import type { ILoginRequest } from "@/types/user";
 
-  const data = reactive<ILoginRequest>({})
-  const form = ref()
+const router = useRouter();
+const userStore = useUserStore();
 
-  const login = () => {
-    userStore.login(toRaw(data)).then(() => {
-      router.push('/')
-    })
-  }
+const data = reactive<ILoginRequest>({});
+const form = ref();
 
-  const { submit } = useForm({
-    form,
-    submitCallback: login
-  })
-  
+const login = () => {
+  userStore.login(toRaw(data)).then(() => {
+    router.push("/");
+  });
+};
 
+const { submit } = useForm({
+  form,
+  submitCallback: login,
+});
 </script>
 
 <template>
   <main>
     <img class="banner" src="@/assets/images/lottery/login-banner.jpg" />
     <div class="activity">
-      <van-form ref="form" class="activity-main" :show-error="false" :show-error-message="false">
+      <van-form
+        ref="form"
+        class="activity-main"
+        :show-error="false"
+        :show-error-message="false"
+      >
         <van-field
           v-model="data.userName"
           name="用户名"
@@ -52,7 +55,7 @@
         <van-button type="primary" block @click="submit">确定</van-button>
       </van-form>
       <div class="activity-main">
-        <img src="@/assets/images/lottery/rule.png" class="rule-title"/>
+        <img src="@/assets/images/lottery/rule.png" class="rule-title" />
         <div class="rule-content">
           <p>1.活动时间：2022年10月22日——2022年12月31日。</p>
           <p>2.本次活动为福建某某公司专属特权活动，仅针对目标用户参与。</p>
@@ -65,5 +68,5 @@
 </template>
 
 <style lang="less" scoped>
-@import './index.less';
+@import "./index.less";
 </style>

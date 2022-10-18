@@ -2,13 +2,13 @@ import type { FormInstance } from "vant";
 import type { Ref } from "vue";
 
 interface IFormProp {
-  form?: Ref<FormInstance | undefined> | undefined,
-  submitCallback: () => void
+  form?: Ref<FormInstance | undefined> | undefined;
+  submitCallback: () => void;
 }
 
 export default function useForm({
   form,
-  submitCallback = () => {}
+  submitCallback = () => {},
 }: IFormProp) {
   const formRef = form || ref<FormInstance>();
 
@@ -18,8 +18,8 @@ export default function useForm({
   function submit() {
     formRef.value?.validate().then(() => {
       formRef.value?.submit();
-      submitCallback()
-    })
+      submitCallback();
+    });
   }
 
   return {

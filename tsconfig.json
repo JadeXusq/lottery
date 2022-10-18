@@ -16,6 +16,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "sourceMap": true,
     "noImplicitThis": true, // js/ts 混用时设为false
     "isolatedModules": false,

@@ -1,43 +1,43 @@
-import type {IPreLoaderOptions } from './interface'
+import type { IPreLoaderOptions } from "./interface";
 
 class PreLoader {
-  private total:number = 0
-  private currentIndex:number = 0
+  private total: number = 0;
+  private currentIndex: number = 0;
   /**
-  * 默认配置参数
-  */
-  private options:IPreLoaderOptions = {
-    resources:[],
+   * 默认配置参数
+   */
+  private options: IPreLoaderOptions = {
+    resources: [],
     onStart: () => {},
     onProgress: () => {},
-    onComplete: () => {}
+    onComplete: () => {},
   };
 
   /**
-  * 初始化数据
-  * @param options 
-  */
-  constructor(options:IPreLoaderOptions) {
-    this.options = options
-    this.total = options.resources.length
+   * 初始化数据
+   * @param options
+   */
+  constructor(options: IPreLoaderOptions) {
+    this.options = options;
+    this.total = options.resources.length;
 
-    this.startLoad()
+    this.startLoad();
   }
 
   /**
-  * 启动加载
-  */
+   * 启动加载
+   */
   startLoad() {
-    this.options.onStart && this.options.onStart(this.total)
+    this.options.onStart && this.options.onStart(this.total);
 
-    const { resources } = this.options
-    for(let i = 0; i < resources.length; i++) {
-      let image = new Image();
+    const { resources } = this.options;
+    for (let i = 0; i < resources.length; i++) {
+      const image = new Image();
       image.onload = () => {
-        this.loadedHandler(i)
+        this.loadedHandler(i);
       };
       image.onerror = () => {
-        this.loadedHandler(i)
+        this.loadedHandler(i);
       };
       image.src = resources[i];
     }
@@ -47,25 +47,26 @@ class PreLoader {
    * 加载完毕处理，做延迟效果
    */
   loadedHandler(num: number) {
-    if(this.options.lazyTime) {
+    if (this.options.lazyTime) {
       setTimeout(() => {
-        this.loaded()
-      }, num * this.options.lazyTime)
+        this.loaded();
+      }, num * this.options.lazyTime);
     } else {
-      this.loaded()
+      this.loaded();
     }
   }
 
   /**
-  * 加载图片回调，无论成功与否，都返回进度
-  */
+   * 加载图片回调，无论成功与否，都返回进度
+   */
   loaded() {
-    this.options.onProgress && this.options.onProgress(++this.currentIndex, this.total)
+    this.options.onProgress &&
+      this.options.onProgress(++this.currentIndex, this.total);
 
-    if(this.currentIndex === this.total) {
-      this.options.onComplete && this.options.onComplete()
+    if (this.currentIndex === this.total) {
+      this.options.onComplete && this.options.onComplete();
     }
   }
 }
 
-export default PreLoader
+export default PreLoader;

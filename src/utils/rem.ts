@@ -7,22 +7,22 @@
  * @FilePath: /vue-vant-h5-template/src/plugins/rem.js
  */
 
-const remUtils = (function(doc, win) {
+const remUtils = (function (doc, win) {
   const resizeEvt =
-      'orientationchange' in window ? 'orientationchange' : 'resize',
-    setRem = function() {
-      const docEl = doc.documentElement
-      const dpr = win.devicePixelRatio //移动端屏幕dpr
+      "orientationchange" in window ? "orientationchange" : "resize",
+    setRem = function () {
+      const docEl = doc.documentElement;
+      const dpr = win.devicePixelRatio; //移动端屏幕dpr
       const visualView = Math.min(
         docEl.getBoundingClientRect().width,
         750 * dpr
-      )
-      const newBase = (visualView * 100) / 750
-      docEl.style.fontSize = newBase + 'px' //默认设计稿宽度750px
-    }
-  if (!doc.addEventListener) return
-  win.addEventListener(resizeEvt, setRem, false)
-  doc.addEventListener('DOMContentLoaded', setRem, false)
-})(document, window)
+      );
+      const newBase = (visualView * 100) / 750;
+      docEl.style.fontSize = newBase + "px"; //默认设计稿宽度750px
+    };
+  if (!doc.addEventListener) return;
+  win.addEventListener(resizeEvt, setRem, false);
+  doc.addEventListener("DOMContentLoaded", setRem, false);
+})(document, window);
 
-export default remUtils
+export default remUtils;

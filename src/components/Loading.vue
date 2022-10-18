@@ -1,30 +1,30 @@
 <script setup lang="ts" name="Loading">
-  const props = defineProps({
-    loadingArr: {
-      type: Array,
-      default: () => ['L', 'O', 'A', 'D', 'I', 'N', 'G', '.', '.', '.']
-    },
-    progress: {
-      type: [Number, String],
-      default: 0
-    }
-  })
+const props = defineProps({
+  loadingArr: {
+    type: Array,
+    default: () => ["L", "O", "A", "D", "I", "N", "G", ".", ".", "."],
+  },
+  progress: {
+    type: [Number, String],
+    default: 0,
+  },
+});
 </script>
 
 <template>
   <main>
     <h1>
-      <span 
+      <span
         v-for="(item, index) in props.loadingArr"
         :key="index"
-        :style="{'animation-delay': `${0.3 * index}s`}"
+        :style="{ 'animation-delay': `${0.3 * index}s` }"
       >
-        {{item}}
+        {{ item }}
       </span>
     </h1>
     <div class="progress-bar">
-      <div class="progress-bar-inner" :style="{width: progress}"></div>
-      <div class="progress-bar-text">{{progress}}</div>
+      <div class="progress-bar-inner" :style="{ width: progress }"></div>
+      <div class="progress-bar-text">{{ progress }}</div>
     </div>
   </main>
 </template>
@@ -52,7 +52,7 @@ h1 {
 
 .progress-bar {
   position: relative;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
   width: 420px;
   border-radius: 10px;
   &-inner {
@@ -63,7 +63,7 @@ h1 {
     border-radius: 10px;
     color: #fff;
     box-shadow: 1px 0px 2px rgb(0 0 0 / 25%), 0px 1px 2px rgb(0 0 0 / 25%);
-    transition: width ease .01s;
+    transition: width ease 0.01s;
   }
   &-text {
     position: absolute;
@@ -79,5 +79,4 @@ h1 {
     letter-spacing: 1px;
   }
 }
-
 </style>
