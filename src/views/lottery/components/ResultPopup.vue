@@ -44,9 +44,9 @@ const close = () => {
       <img class="content-title" :src="titleImg" />
       <div class="content">
         <div class="context">{{ tip }}</div>
-        <van-button type="primary" class="btnsave" block @click="close"
-          >确定</van-button
-        >
+        <van-button type="primary" class="btnsave" block @click="close">
+          确定
+        </van-button>
       </div>
     </div>
   </van-popup>
