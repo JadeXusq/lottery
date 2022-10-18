@@ -53,7 +53,7 @@
 
 <style lang="less" scoped>
 :global(.result-popup) {
-  background: rgba(0,0,0,0);
+  background: rgba(0,0,0,0)!important;
 }
 .content-box {
   position: relative;

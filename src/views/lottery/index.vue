@@ -4,11 +4,12 @@
   import LeaderBoard from '@/views/lottery/components/LeaderBoard.vue'
   import { prizeList } from '@/utils/dict'
 
+  const rank = ref(null) // 排行榜
   const list = reactive(prizeList)
   const showResult = ref(false)
   const tip = ref('')
   const resultType = ref('success')
-
+  
   const {
     currentIndex,
     prizeIndex,
@@ -20,6 +21,8 @@
       const result = list[prizeIndex.value]
       resultType.value = result.fail ? 'fail' : 'success' // 弹窗类型
       tip.value = result.title // 提示文案
+      
+      rank.value.loadData() // 抽奖完重新请求一下排行榜数据
     }
   })
 </script>
@@ -50,7 +53,7 @@
     </div>
 
     <!-- 排行榜 -->
-    <LeaderBoard />
+    <LeaderBoard ref="rank" />
 
     <!-- 结果弹窗 -->
     <ResultPopup 

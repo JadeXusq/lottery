@@ -3,8 +3,9 @@
   import { Vue3SeamlessScroll } from "vue3-seamless-scroll";
   import titleImg from '@/assets/images/lottery/titleimg.png'
   import { prizeList } from '@/utils/dict'
+  import type { IRank } from '@/api/user' 
 
-  const list = ref([])
+  const list = ref<IRank[]>([])
 
   /**
    * 加载数据，暴露给外部使用
@@ -25,7 +26,7 @@
     <div class="rank-box-inner">
       <img  class="rank-box-title" :src="titleImg">
       <div class="rank-box-content">
-        <vue3-seamless-scroll :list="list" class="scroll">
+        <vue3-seamless-scroll :list="list" class="scroll" :step=".5">
           <div class="item" v-for="(item, index) in list" :key="index">
             <span>{{`恭喜 ${item.userName} 抽中了${prizeList[item.prize].title}`}}</span>
           </div>

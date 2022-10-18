@@ -1,6 +1,6 @@
 import type { ILoginRequest, IUserInfo } from '@/types/user'
 
-interface IRank {
+export interface IRank {
   userName: string;
   prize: number
 }
@@ -15,6 +15,7 @@ export function login(data: ILoginRequest) {
 }
 
 export function getRankList() {
+  console.log('getRank')
   return new Promise<IRank[]>(resolve => {
     resolve([
       { userName: '李白1', prize: 1 },

@@ -16,6 +16,7 @@ import img16 from '@/assets/images/lottery/aqy2.png'
 import img17 from '@/assets/images/lottery/try2.png'
 import img18 from '@/assets/images/lottery/10fee2.png'
 
+// 抽奖数据
 export const prizeList = [
   {
     img: img01,
