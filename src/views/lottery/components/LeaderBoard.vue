@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { getRankList } from "@/api/user";
+import { getRankList } from "@/api/prize";
 import { Vue3SeamlessScroll } from "vue3-seamless-scroll";
 import titleImg from "@/assets/images/lottery/titleimg.png";
 import { prizeList } from "@/utils/dict";
-import type { IRank } from "@/api/user";
+import type { IRankList } from "@/api/user";
 
-const list = ref<IRank[]>([]);
+const list = ref<IRankList>([]);
+let timer = null;
 
 /**
  * 加载数据，暴露给外部使用
@@ -13,10 +14,27 @@ const list = ref<IRank[]>([]);
 const loadData = () => {
   getRankList().then((res) => {
     list.value = res;
+
+    // 加载完数据再预设下次刷新时间
+    clearTimer();
+    timer = setTimeout(loadData, 30 * 1000);
   });
 };
 
-onMounted(loadData); // 初始化加载数据
+// 清空定时器
+const clearTimer = () => {
+  clearInterval(timer);
+  timer = null;
+};
+
+onMounted(() => {
+  loadData();
+}); // 初始化加载数据
+
+// 清除定时器
+onBeforeUnmount(() => {
+  clearTimer();
+});
 
 defineExpose({ loadData });
 </script>
@@ -29,7 +47,7 @@ defineExpose({ loadData });
         <vue3-seamless-scroll :list="list" class="scroll" :step="0.5">
           <div class="item" v-for="(item, index) in list" :key="index">
             <span>{{
-              `恭喜 ${item.userName} 抽中了${prizeList[item.prize].title}`
+              `恭喜 ${item.userName} 抽中了${prizeList[item.prizeNo].title}`
             }}</span>
           </div>
         </vue3-seamless-scroll>

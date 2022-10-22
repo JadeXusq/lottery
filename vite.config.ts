@@ -164,10 +164,13 @@ export default defineConfig({
       overlay: false, // 禁用或配置 HMR 连接 设置 server.hmr.overlay 为 false 可以禁用服务器错误遮罩层
     },
     proxy: {
-      "/api": {
-        target: "http://127.0.0.1:8000",
+      "/user": {
+        target: "http://127.0.0.1:7001",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+      "/prize": {
+        target: "http://127.0.0.1:7001",
+        changeOrigin: true,
       },
     },
     host: "0.0.0.0", // IP配置，支持从IP启动

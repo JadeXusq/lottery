@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useUserStore } from "@/store";
 import useForm from "@/hooks/useForm";
+import validator from "@/utils/validator";
 import type { ILoginRequest } from "@/types/user";
 
 const router = useRouter();
@@ -10,6 +11,10 @@ const data = reactive<ILoginRequest>({});
 const form = ref();
 
 const login = () => {
+  if (!data.userName || !data.phone) {
+    Toast("用户名、手机号不能为空");
+  }
+
   userStore.login(toRaw(data)).then(() => {
     router.push("/");
   });
@@ -36,6 +41,7 @@ const { submit } = useForm({
           name="用户名"
           placeholder="请填写用户名"
           :maxlength="20"
+          autocomplete="off"
           :rules="[{ required: true, message: '请填写用户名' }]"
         />
         <van-field
@@ -43,14 +49,28 @@ const { submit } = useForm({
           name="手机号"
           placeholder="请填写手机号"
           :maxlength="11"
-          :rules="[{ required: true, message: '请填写手机号' }]"
+          autocomplete="off"
+          :rules="[
+            {
+              required: true,
+              message: '请填写合法手机号',
+              pattern: validator.phone,
+            },
+          ]"
         />
         <van-field
           v-model="data.password"
           name="密码"
           placeholder="请填写密码"
           :maxlength="20"
-          :rules="[{ required: true, message: '请填写密码' }]"
+          autocomplete="off"
+          :rules="[
+            {
+              required: true,
+              message: '请填写6位及以上密码',
+              pattern: validator.password,
+            },
+          ]"
         />
         <van-button type="primary" block @click="submit">确定</van-button>
       </van-form>

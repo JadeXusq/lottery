@@ -16,10 +16,17 @@ export default function useForm({
    * 表单校验
    */
   function submit() {
-    formRef.value?.validate().then(() => {
-      formRef.value?.submit();
-      submitCallback();
-    });
+    formRef.value
+      ?.validate()
+      .then(() => {
+        formRef.value?.submit();
+        submitCallback();
+      })
+      .catch((err) => {
+        if (Array.isArray(err)) {
+          Toast(err[0].message);
+        }
+      });
   }
 
   return {

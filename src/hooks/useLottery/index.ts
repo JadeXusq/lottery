@@ -1,3 +1,4 @@
+import { getPrizeNo } from "@/api/prize";
 import type { ILotteryOptions, ILotteryOptionsPartial } from "./interface";
 
 export default function useLottery(options: ILotteryOptionsPartial) {
@@ -55,7 +56,7 @@ export default function useLottery(options: ILotteryOptionsPartial) {
   /**
    * 执行抽奖判断逻辑
    */
-  const run = () => {
+  const run = async () => {
     runStep();
 
     // 抽奖结束（基础圈数+多转一圈减速+转到目标位置），如果请求接口没返回，会继续转圈，返回数据之后，转到对应位置
@@ -77,7 +78,8 @@ export default function useLottery(options: ILotteryOptionsPartial) {
 
       // 达到基础圈数之后，创建一个奖品随机数（TODO: 后期考虑改为接口获取）
       if (steps === baseSteps) {
-        prizeIndex.value = randomPrize();
+        const result = await getPrizeNo();
+        prizeIndex.value = result.prizeNo;
       }
     } else {
       speed += 10;

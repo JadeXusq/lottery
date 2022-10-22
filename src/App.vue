@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
 import { useUserStore } from "@/store";
 import Loading from "@/components/Loading.vue";
 import usePreLoader from "@/hooks/usePreLoader";
+
 import type { IFileRequireObject } from "@/types/file";
 
 const userStore = useUserStore();
@@ -20,9 +20,12 @@ const resources = Object.keys(files).map(
 const { progress, status } = usePreLoader({
   resources,
   onComplete: () => {
-    if (!userStore.userName) {
+    if (!userStore.token) {
       router.push("/login");
+      return;
     }
+
+    userStore.getUserInfo();
   },
   lazyTime: 100, // 人工延迟一下
 });

@@ -32,3 +32,8 @@ export interface ILoginRequest extends IUserInfo {
    */
   password?: string;
 }
+
+/**
+ * 用户登录返参
+ */
+export type ILoginResponse = Pick<IUserState, "token">;

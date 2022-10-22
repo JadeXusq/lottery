@@ -1,14 +1,16 @@
 <script setup lang="ts" name="Lottery">
 import useLottery from "@/hooks/useLottery";
 import ResultPopup from "@/views/lottery/components/ResultPopup.vue";
+import PrizePopup from "@/views/lottery/components/PrizePopup.vue";
 import LeaderBoard from "@/views/lottery/components/LeaderBoard.vue";
 import { prizeList } from "@/utils/dict";
 
 const rank = ref(null); // 排行榜
 const list = reactive(prizeList);
-const showResult = ref(false);
-const tip = ref("");
-const resultType = ref("success");
+const showResult = ref(false); // 结果弹窗
+const showPrize = ref(false); // 中奖弹窗
+const tip = ref(""); // 中奖提示
+const resultType = ref("success"); // 是否中奖
 
 const { currentIndex, prizeIndex, lotteryHandler } = useLottery({
   callback: () => {
@@ -21,6 +23,10 @@ const { currentIndex, prizeIndex, lotteryHandler } = useLottery({
     rank.value && rank.value.loadData(); // 抽奖完重新请求一下排行榜数据
   },
 });
+
+const showPrizeList = () => {
+  showPrize.value = true; // 显示中奖弹窗
+};
 </script>
 
 <template>
@@ -31,6 +37,7 @@ const { currentIndex, prizeIndex, lotteryHandler } = useLottery({
         <img class="gomyimg" src="@/assets/images/lottery/gomy.png" />
       </span>
     </div>
+    <div class="gift" @click="showPrizeList">我的奖品</div>
     <div class="lottery">
       <div class="lottery-item">
         <div class="lottery-start">
@@ -52,6 +59,9 @@ const { currentIndex, prizeIndex, lotteryHandler } = useLottery({
 
     <!-- 结果弹窗 -->
     <ResultPopup v-model:show="showResult" :tip="tip" :type="resultType" />
+
+    <!-- 中奖弹窗 -->
+    <PrizePopup v-model:show="showPrize" />
   </main>
 </template>
 

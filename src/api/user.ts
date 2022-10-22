@@ -1,29 +1,21 @@
-import type { ILoginRequest, IUserInfo } from "@/types/user";
+import http from "@/utils/http";
+import type { ILoginRequest, ILoginResponse, IUserInfo } from "@/types/user";
 
-export interface IRank {
-  userName: string;
-  prize: number;
-}
-
-export function login(data: ILoginRequest) {
-  return new Promise<IUserInfo>((resolve) => {
-    resolve({
-      userName: data.userName,
-      phone: data.phone,
-    });
+// 登录
+export function login(data: ILoginRequest, loading = true) {
+  return http<ILoginResponse>({
+    url: "/user/login",
+    method: "POST",
+    data,
+    loading,
   });
 }
 
-export function getRankList() {
-  console.log("getRank");
-  return new Promise<IRank[]>((resolve) => {
-    resolve([
-      { userName: "李白1", prize: 1 },
-      { userName: "李白2", prize: 1 },
-      { userName: "李白3", prize: 2 },
-      { userName: "李白4", prize: 4 },
-      { userName: "李白5", prize: 5 },
-      { userName: "李白6", prize: 6 },
-    ]);
+// 获取用户信息
+export function getUserInfo(loading = false) {
+  return http<IUserInfo>({
+    url: "/user/getUserInfo",
+    method: "GET",
+    loading,
   });
 }
