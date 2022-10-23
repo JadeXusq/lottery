@@ -3,10 +3,10 @@ import { getRankList } from "@/api/prize";
 import { Vue3SeamlessScroll } from "vue3-seamless-scroll";
 import titleImg from "@/assets/images/lottery/titleimg.png";
 import { prizeList } from "@/utils/dict";
-import type { IRankList } from "@/api/user";
+import type { IRankList } from "@/types/prize";
 
 const list = ref<IRankList>([]);
-let timer = null;
+let timer = 0;
 
 /**
  * 加载数据，暴露给外部使用
@@ -17,14 +17,14 @@ const loadData = () => {
 
     // 加载完数据再预设下次刷新时间
     clearTimer();
-    timer = setTimeout(loadData, 30 * 1000);
+    timer = window.setTimeout(loadData, 30 * 1000);
   });
 };
 
 // 清空定时器
 const clearTimer = () => {
   clearInterval(timer);
-  timer = null;
+  timer = 0;
 };
 
 onMounted(() => {

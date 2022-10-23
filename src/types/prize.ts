@@ -1,4 +1,4 @@
-import type { IUserState } from "./user";
+import type { IUserInfo } from "./user";
 /**
  * 获取中奖号返参
  */
@@ -9,7 +9,7 @@ export interface IPrizeResponse {
   prizeNo: number;
 }
 
-export interface IRank extends IUserState, IPrizeResponse {
+export interface IRank extends IUserInfo, IPrizeResponse {
   /**
    * 中奖时间
    */

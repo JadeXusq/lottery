@@ -5,7 +5,7 @@ import PrizePopup from "@/views/lottery/components/PrizePopup.vue";
 import LeaderBoard from "@/views/lottery/components/LeaderBoard.vue";
 import { prizeList } from "@/utils/dict";
 
-const rank = ref(null); // 排行榜
+const rank = ref<InstanceType<typeof LeaderBoard>>(); // 排行榜
 const list = reactive(prizeList);
 const showResult = ref(false); // 结果弹窗
 const showPrize = ref(false); // 中奖弹窗
@@ -20,7 +20,7 @@ const { currentIndex, prizeIndex, lotteryHandler } = useLottery({
     resultType.value = result.fail ? "fail" : "success"; // 弹窗类型
     tip.value = result.title; // 提示文案
 
-    rank.value && rank.value.loadData(); // 抽奖完重新请求一下排行榜数据
+    rank.value?.loadData(); // 抽奖完重新请求一下排行榜数据
   },
 });
 
