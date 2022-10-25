@@ -12,8 +12,8 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript",
+    "@vue/eslint-config-prettier",
     "./.eslintrc-auto-import",
-    "plugin:prettier/recommended",
   ],
   parserOptions: {
     ecmaVersion: "latest",
