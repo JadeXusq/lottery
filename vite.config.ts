@@ -3,7 +3,6 @@ import path from "path";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import vueJSX from "@vitejs/plugin-vue-jsx";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
 
 import AutoImport from "unplugin-auto-import/vite";
@@ -21,7 +20,6 @@ export default defineConfig({
   base: "./",
   plugins: [
     vue(),
-    vueJSX(),
     VueSetupExtend(),
     AutoImport({
       dts: "src/types/auto-imports.d.ts",
@@ -127,9 +125,9 @@ export default defineConfig({
     },
   },
 
-  // esbuild: {
-  //   pure: ['console.log', 'debugger']
-  // },
+  esbuild: {
+    pure: ["console.log", "debugger"],
+  },
 
   build: {
     rollupOptions: {
