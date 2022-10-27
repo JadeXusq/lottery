@@ -50,7 +50,7 @@ export default defineConfig({
     }),
     viteImagemin({
       verbose: true,
-      disable: false,
+      disable: true,
       gifsicle: {
         optimizationLevel: 7,
         interlaced: false,
@@ -59,23 +59,12 @@ export default defineConfig({
         optimizationLevel: 7,
       },
       mozjpeg: {
-        quality: 20,
+        quality: 80,
       },
       pngquant: {
-        quality: [0.8, 0.9],
+        quality: [0.9, 0.95],
         speed: 4,
-      },
-      svgo: {
-        plugins: [
-          {
-            name: "removeViewBox",
-          },
-          {
-            name: "removeEmptyAttrs",
-            active: false,
-          },
-        ],
-      },
+      }
     }),
     viteCompression({
       verbose: false,
