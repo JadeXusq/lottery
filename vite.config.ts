@@ -49,8 +49,8 @@ export default defineConfig({
       ],
     }),
     viteImagemin({
-      verbose: false,
-      disable: true,
+      verbose: true,
+      disable: false,
       gifsicle: {
         optimizationLevel: 7,
         interlaced: false,
