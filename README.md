@@ -10,11 +10,11 @@
 
 ## 服务端仓库地址
 
-https://github.com/JadeXusq/lottery-eggjs
+[服务端项目仓库地址](https://github.com/JadeXusq/lottery-eggjs)
 
 ## 接口文档地址
 
-https://www.apifox.cn/apidoc/shared-88cc06f1-4877-4ebd-ad7e-0e426df29c9e
+[文档地址](https://www.apifox.cn/apidoc/shared-88cc06f1-4877-4ebd-ad7e-0e426df29c9e)
 
 ## 项目截图
 
