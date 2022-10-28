@@ -1,6 +1,7 @@
 {
   "name": "lottery",
   "version": "0.0.0",
+  "description": "抽奖前端项目",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -10,6 +11,7 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
+  "author": "JadeXusq",
   "dependencies": {
     "axios": "^1.1.3",
     "pinia": "^2.0.21",
