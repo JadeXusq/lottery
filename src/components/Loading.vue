@@ -1,10 +1,10 @@
 <script setup lang="ts" name="Loading">
-interface Props {
+interface IProps {
   loadingArr: string[];
   progress: number | string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<IProps>(), {
   loadingArr: () => ["L", "O", "A", "D", "I", "N", "G", ".", ".", "."],
   progress: 0,
 });

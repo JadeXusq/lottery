@@ -6,10 +6,10 @@ import type { IRankList } from "@/types/prize";
 
 const emits = defineEmits(["update:show"]);
 
-interface Props {
+interface IProps {
   show: boolean;
 }
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<IProps>(), {
   show: false,
 });
 

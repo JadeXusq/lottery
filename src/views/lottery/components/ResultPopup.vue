@@ -4,12 +4,12 @@ import SuccessImg from "@/assets/images/lottery/gx.png";
 
 const emits = defineEmits(["update:show"]);
 
-interface Props {
+interface IProps {
   show: boolean;
   type?: string;
   tip?: string;
 }
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<IProps>(), {
   show: false,
   type: "fail",
 });
