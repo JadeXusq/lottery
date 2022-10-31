@@ -37,12 +37,6 @@ export default function useLottery(options: ILotteryOptionsPartial) {
   };
 
   /**
-   * 产生随机数
-   */
-  const randomPrize = () =>
-    Math.round(Math.random() * (mergeOptions.total - 1));
-
-  /**
    * 重置数据
    */
   const reset = () => {
@@ -59,9 +53,9 @@ export default function useLottery(options: ILotteryOptionsPartial) {
   const run = async () => {
     runStep();
 
-    // 抽奖结束（基础圈数+多转一圈减速+转到目标位置），如果请求接口没返回，会继续转圈，返回数据之后，转到对应位置
+    // 抽奖结束（基础圈数+多转2圈减速+转到目标位置），如果请求接口没返回，会继续转圈，返回数据之后，转到对应位置
     if (
-      steps > baseSteps + mergeOptions.total &&
+      steps > baseSteps + mergeOptions.total * 2 &&
       currentIndex.value === prizeIndex.value
     ) {
       reset(); // 重置数据状态,以备下次抽奖使用

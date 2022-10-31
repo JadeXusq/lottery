@@ -6,11 +6,11 @@ import type { IRankList } from "@/types/prize";
 
 const emits = defineEmits(["update:show"]);
 
-const props = defineProps({
-  show: {
-    type: Boolean,
-    default: false,
-  },
+interface Props {
+  show: boolean;
+}
+const props = withDefaults(defineProps<Props>(), {
+  show: false,
 });
 
 const visible = ref(false);

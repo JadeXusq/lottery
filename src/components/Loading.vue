@@ -1,13 +1,12 @@
 <script setup lang="ts" name="Loading">
-const props = defineProps({
-  loadingArr: {
-    type: Array,
-    default: () => ["L", "O", "A", "D", "I", "N", "G", ".", ".", "."],
-  },
-  progress: {
-    type: [Number, String],
-    default: 0,
-  },
+interface Props {
+  loadingArr: string[];
+  progress: number | string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  loadingArr: () => ["L", "O", "A", "D", "I", "N", "G", ".", ".", "."],
+  progress: 0,
 });
 </script>
 
